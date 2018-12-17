@@ -2,7 +2,7 @@
 declare(strict_types=1);
 namespace CuteBytes;
 
-class CuteBytes
+class Api
 {
     const sizes = ['B','kB','MB','GB','TB','PB','EB','ZB','YB'];
     private $decimals = 2;
