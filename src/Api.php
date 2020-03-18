@@ -5,13 +5,13 @@ namespace CuteBytes;
 class Api
 {
     const sizes = ['B','kB','MB','GB','TB','PB','EB','ZB','YB'];
-    private $decimals = 2;
-    private $dec_point = '.';
-    private $thousands_sep = ',';
+    private int $decimals = 2;
+    private string $dec_point = '.';
+    private string $thousands_sep = ',';
     #How many 'extra' numbers to show. 3 will attempt to show thousands, where applicable
-    private $numbers = 3;
+    private int $numbers = 3;
     #Whether comply with SI (1000) or binary (1024)
-    private $power = 1000;
+    private int $power = 1000;
     
     public function bytes($string): string
     {
