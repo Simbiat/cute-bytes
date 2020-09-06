@@ -4,7 +4,7 @@
     "keywords": ["cute","bytes", "human","readable"],
     "description": "Class to present bytes in readable format",
     "homepage": "https://github.com/Simbiat/cute-bytes",
-    "license": "MIT",
+    "license": "AGPL-3.0-or-later",
     "authors": [
         {
             "name": "Dmitry Kustov",
