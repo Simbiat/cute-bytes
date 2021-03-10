@@ -13,7 +13,7 @@ class Api
     #Whether comply with SI (1000) or binary (1024)
     private int $power = 1000;
     
-    public function bytes($string): string
+    public function bytes(string|float|int $string): string
     {
         if (is_numeric($string)) {
             #Retracting 1 for syncronization of length with array numbering
