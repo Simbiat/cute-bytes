@@ -1,8 +1,8 @@
 <?php
 declare(strict_types=1);
-namespace CuteBytes;
+namespace Simbiat;
 
-class Api
+class CuteBytes
 {
     const sizes = ['B','kB','MB','GB','TB','PB','EB','ZB','YB'];
     private int $decimals = 2;
