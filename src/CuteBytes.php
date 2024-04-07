@@ -4,7 +4,7 @@ namespace Simbiat;
 
 class CuteBytes
 {
-    const sizes = ['B','kB','MB','GB','TB','PB','EB','ZB','YB'];
+    const array sizes = ['B','kB','MB','GB','TB','PB','EB','ZB','YB'];
     private int $decimals = 2;
     private string $dec_point = '.';
     private string $thousands_sep = ',';
@@ -17,8 +17,8 @@ class CuteBytes
     {
         if (is_numeric($string)) {
             #Retracting 1 for synchronization of length with array numbering
-            #Retracting 3 to show thousands by default, which looks a bit more readable some times
-            $exp = floor((strlen($string) - 1 - $this->getNumbers()) / 3);
+            #Retracting 3 to show thousands by default, which looks a bit more readable sometimes
+            $exp = floor((mb_strlen($string, 'UTF-8') - 1 - $this->getNumbers()) / 3);
             #Preventing $exp getting outside of possible postfixes
             $maxPostfix = count(self::sizes)-1;
             if ($exp > $maxPostfix) {
@@ -32,7 +32,7 @@ class CuteBytes
             #Limiting decimals to 2 (default) and stripping superfluous zeros
             $string = rtrim(rtrim(number_format($string/$pow, $this->getDecimals(), $this->getDecPoint(), $this->getThousandSep()), '0'), $this->getDecPoint());
             #Adding postfix
-            $string = $string.' '.self::sizes[$exp];
+            $string .= ' '.self::sizes[ $exp ];
         } else {
             $string = 'NaN';
         }
