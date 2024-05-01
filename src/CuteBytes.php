@@ -4,7 +4,7 @@ namespace Simbiat;
 
 class CuteBytes
 {
-    const array sizes = ['B','kB','MB','GB','TB','PB','EB','ZB','YB'];
+    public const array sizes = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
     private int $decimals = 2;
     private string $dec_point = '.';
     private string $thousands_sep = ',';
