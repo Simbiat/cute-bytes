@@ -20,10 +20,7 @@ will output `1,234.57 MB`
 You can change decimal and thousands delimiters or change number of decimals (precision)
 
 ```php
-\Simbiat\CuteBytes::$dec_point = ',';
-\Simbiat\CuteBytes::$thousands_sep = '.';
-\Simbiat\CuteBytes::$decimals = 3;
-echo \Simbiat\CuteBytes::bytes(1234567890);
+echo \Simbiat\CuteBytes::bytes(1234567890, decimals: 3, dec_point: ',', thousands_sep: '.');
 ```
 
 to get `1.234,568 MB`
@@ -31,8 +28,7 @@ to get `1.234,568 MB`
 If you want to drop thousands, set the default number of numbers shown
 
 ```php
-\Simbiat\CuteBytes::$numbers = 0;
-echo \Simbiat\CuteBytes::bytes(1234567890);
+echo \Simbiat\CuteBytes::bytes(1234567890, numbers: 0);
 ```
 
 to get `1.23 GB`
