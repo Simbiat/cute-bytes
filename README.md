@@ -4,7 +4,7 @@ Class to present bytes (numeric value) as a human-readable string. There are sev
 
 - No missing postfixes in case of too big or too small values.
 - No superfluous trailing zeros.
-- Follows SI format by default (power of 10, can be switched to power of 2, if so desired).
+- Follows SI format by default (power of 10 can be switched to power of 2, if so desired).
 - Shows thousands by default (adjustable) for extra readability in some cases.
 
 ## How to use
@@ -17,7 +17,7 @@ echo \Simbiat\CuteBytes::bytes(1234567890);
 
 will output `1,234.57 MB`
 
-You can change decimal and thousands delimiters or change number of decimals (precision)
+You can change decimal and thousands delimiters or change the number of decimals (precision)
 
 ```php
 echo \Simbiat\CuteBytes::bytes(1234567890, decimals: 3, dec_point: ',', thousands_sep: '.');
@@ -33,7 +33,7 @@ echo \Simbiat\CuteBytes::bytes(1234567890, numbers: 0);
 
 to get `1.23 GB`
 
-If you want to use "classic" logic (binary, power of 2) use
+If you want to use "classic" logic, that is binary, power of 2, use
 
 ```php
 echo \Simbiat\CuteBytes::bytes(1234567890, 1024);

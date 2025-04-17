@@ -4,7 +4,7 @@ declare(strict_types = 1);
 namespace Simbiat;
 
 /**
- * Present numeric value of bytes as a human-readable string
+ * Present a numeric value of bytes as a human-readable string
  */
 class CuteBytes
 {
@@ -18,10 +18,10 @@ class CuteBytes
      * @param string|float|int $string        Value to convert.
      * @param int              $power         Power used in conversion. Whether comply with decimal SI (1000) or binary IEC 80000-13 (1024).
      * @param int              $decimals      Number of decimals after decimal delimiter.
-     * @param string           $dec_point     Decimal delimiter. if empty, `.` will be forced.
+     * @param string           $dec_point     Decimal delimiter. If empty, `.` will be forced.
      * @param string           $thousands_sep Thousands' separator, `,` by default.
-     * @param int              $numbers       How many 'extra' numbers to show. For example, 3 will attempt to show thousands, where applicable. 0 by default for more "conventional" look.
-     * @param bool             $bits          Whether provided value is bits, not bytes.
+     * @param int              $numbers       How many 'extra' numbers to show. For example, 3 will attempt to show thousands, where applicable. 0 by default for a more "conventional" look.
+     * @param bool             $bits          Whether the provided value is bits, not bytes.
      *
      * @return string
      */
@@ -54,7 +54,7 @@ class CuteBytes
             #Using 1000 by default instead of 1024, as per SI recommendations
             $pow = $power ** $exp;
             #Limiting decimals to 2 (default) and stripping superfluous zeros
-            $string = rtrim(rtrim(number_format($string / $pow, $decimals, $dec_point, $thousands_sep), '0'), $dec_point);
+            $string = mb_rtrim(mb_rtrim(number_format($string / $pow, $decimals, $dec_point, $thousands_sep), '0', 'UTF-8'), $dec_point, 'UTF-8');
             #Adding postfix
             $string .= ' '.($power === 1000 ? self::sizesDecimal[$exp] : self::sizesBinary[$exp]);
         } else {
