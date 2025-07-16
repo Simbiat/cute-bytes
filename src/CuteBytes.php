@@ -44,9 +44,9 @@ class CuteBytes
             #Retracting 3 to show thousands by default, which looks a bit more readable sometimes
             $exp = (int)floor((mb_strlen((string)$string, 'UTF-8') - 1 - $numbers) / 3);
             #Preventing $exp getting outside of possible postfixes
-            $maxPostfix = \count($power === 1000 ? self::SIZES_DECIMAL : self::SIZES_BINARY) - 1;
-            if ($exp > $maxPostfix) {
-                $exp = $maxPostfix;
+            $max_postfix = count($power === 1000 ? self::SIZES_DECIMAL : self::SIZES_BINARY) - 1;
+            if ($exp > $max_postfix) {
+                $exp = $max_postfix;
             }
             if ($exp < 0) {
                 $exp = 0;
