@@ -43,7 +43,7 @@ class CuteBytes
         if (\is_numeric($string)) {
             // Retracting 1 for synchronization of length with array numbering
             // Retracting 3 to show thousands by default, which looks a bit more readable sometimes
-            $exp = (int)\floor((mb_strlen((string)$string, 'UTF-8') - 1 - $numbers) / 3);
+            $exp = (int) \floor((\mb_strlen((string) $string, 'UTF-8') - 1 - $numbers) / 3);
             // Preventing $exp getting outside of possible postfixes
             $max_postfix = \count($power === 1000 ? self::SIZES_DECIMAL : self::SIZES_BINARY) - 1;
             if ($exp > $max_postfix) {
@@ -55,7 +55,7 @@ class CuteBytes
             // Using 1000 by default instead of 1024, as per SI recommendations
             $pow = $power ** $exp;
             // Limiting decimals to 2 (default) and stripping superfluous zeros
-            $string = mb_rtrim(mb_rtrim(\number_format($string / $pow, $decimals, $dec_point, $thousands_sep), '0', 'UTF-8'), $dec_point, 'UTF-8');
+            $string = \mb_rtrim(\mb_rtrim(\number_format($string / $pow, $decimals, $dec_point, $thousands_sep), '0', 'UTF-8'), $dec_point, 'UTF-8');
             // Adding postfix
             $string .= ' '.($power === 1000 ? self::SIZES_DECIMAL[$exp] : self::SIZES_BINARY[$exp]);
         } else {
