@@ -28,7 +28,10 @@ class CuteBytes
      */
     public static function bytes(string|float|int $string, int $power = 1000, int $decimals = 2, string $dec_point = '.', string $thousands_sep = ',', int $numbers = 0, bool $bits = false): string
     {
-        if ($power !== 1000 && $power !== 1024) {
+        if (
+            $power !== 1000
+            && $power !== 1024
+        ) {
             throw new \UnexpectedValueException('Unsupported power of `'.$power.'`.');
         }
         if ($decimals < 0) {
@@ -64,6 +67,7 @@ class CuteBytes
         if ($bits) {
             $string = \str_replace('B', 'bit', $string);
         }
+
         return $string;
     }
 }
