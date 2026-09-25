@@ -7,7 +7,7 @@ namespace Simbiat;
 /**
  * Present a numeric value of bytes as a human-readable string
  */
-class CuteBytes
+final class CuteBytes
 {
     public const array SIZES_DECIMAL = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB', 'RB', 'QB'];
     public const array SIZES_BINARY = ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
