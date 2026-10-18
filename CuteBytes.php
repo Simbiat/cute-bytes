@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Simbiat;
 
 /**
- * Present a numeric value of bytes as a human-readable string
+ * Present a numeric value of bytes as a human-readable string.
  */
 final class CuteBytes
 {
@@ -14,9 +14,9 @@ final class CuteBytes
     // How many 'extra' numbers to show. 3 will attempt to show thousands, where applicable
 
     /**
-     * Generate the string
+     * Generate the string.
      *
-     * @param string|float|int $string        Value to convert.
+     * @param float|int|string $string        Value to convert.
      * @param int              $power         Power used in conversion. Whether comply with decimal SI (1000) or binary IEC 80000-13 (1024).
      * @param int              $decimals      Number of decimals after decimal delimiter.
      * @param string           $dec_point     Decimal delimiter. If empty, `.` will be forced.
@@ -26,7 +26,7 @@ final class CuteBytes
      *
      * @return string
      */
-    public static function bytes(string|float|int $string, int $power = 1000, int $decimals = 2, string $dec_point = '.', string $thousands_sep = ',', int $numbers = 0, bool $bits = false): string
+    public static function bytes(float|int|string $string, int $power = 1000, int $decimals = 2, string $dec_point = '.', string $thousands_sep = ',', int $numbers = 0, bool $bits = false): string
     {
         if (
             $power !== 1000
