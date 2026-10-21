@@ -10,7 +10,9 @@ namespace Simbiat;
 final class CuteBytes
 {
     public const array SIZES_DECIMAL = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB', 'RB', 'QB'];
+
     public const array SIZES_BINARY = ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+
     // How many 'extra' numbers to show. 3 will attempt to show thousands, where applicable
 
     /**
@@ -34,15 +36,19 @@ final class CuteBytes
         ) {
             throw new \UnexpectedValueException('Unsupported power of `'.$power.'`.');
         }
+
         if ($decimals < 0) {
             $decimals = 0;
         }
+
         if ($numbers < 0) {
             $numbers = 0;
         }
+
         if ($dec_point === '') {
             $dec_point = '.';
         }
+
         if (\is_numeric($string)) {
             // Retracting 1 for synchronization of length with array numbering
             // Retracting 3 to show thousands by default, which looks a bit more readable sometimes
@@ -52,9 +58,11 @@ final class CuteBytes
             if ($exp > $max_postfix) {
                 $exp = $max_postfix;
             }
+
             if ($exp < 0) {
                 $exp = 0;
             }
+
             // Using 1000 by default instead of 1024, as per SI recommendations
             $pow = $power ** $exp;
             // Limiting decimals to 2 (default) and stripping superfluous zeros
@@ -64,8 +72,9 @@ final class CuteBytes
         } else {
             $string = 'NaN';
         }
+
         if ($bits) {
-            $string = \str_replace('B', 'bit', $string);
+            return \str_replace('B', 'bit', $string);
         }
 
         return $string;
