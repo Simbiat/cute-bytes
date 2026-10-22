@@ -13,8 +13,6 @@ final class CuteBytes
 
     public const array SIZES_BINARY = ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
 
-    // How many 'extra' numbers to show. 3 will attempt to show thousands, where applicable
-
     /**
      * Generate the string.
      *
