@@ -9,9 +9,9 @@ namespace Simbiat;
  */
 final class CuteBytes
 {
-    public const array SIZES_DECIMAL = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB', 'RB', 'QB'];
-
     public const array SIZES_BINARY = ['B', 'kiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
+
+    public const array SIZES_DECIMAL = ['B', 'kB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB', 'RB', 'QB'];
 
     /**
      * Generate the string.
@@ -25,6 +25,8 @@ final class CuteBytes
      * @param bool             $bits          Whether the provided value is bits, not bytes.
      *
      * @return string
+     *
+     * @throws \UnexpectedValueException
      */
     public static function bytes(float|int|string $string, int $power = 1000, int $decimals = 2, string $dec_point = '.', string $thousands_sep = ',', int $numbers = 0, bool $bits = false): string
     {
